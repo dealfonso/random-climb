@@ -28,7 +28,6 @@
 
     TextIt.prototype.nextchar = function() {
         let current = this.lines[this.i];
-        console.log(current);
     }
 
     TextIt.prototype.next = function() {

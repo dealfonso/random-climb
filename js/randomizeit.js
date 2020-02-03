@@ -35,7 +35,6 @@ function RandomizeIt(selector, objects) {
 
         col_wrapper.append(this.createObject({id: `placeholder_${i_serie}`, img: 'images/transparent_1024.png'}).addClass('placeholder').show());
         row_wrapper.append(col_wrapper);
-
     }.bind(this));
     
     this.placeholder.append(row_wrapper);
@@ -51,6 +50,20 @@ RandomizeIt.prototype.appendSound = function(id) {
 }
 
 RandomizeIt.prototype.nextSound = function () {
+    if (this.sounds.length > 0) {
+        let s_id = this.sounds.shift();
+        let src = this._data[s_id[0]][s_id[1]].sound || null;
+        if (sound && (src !== null)) {
+            let audioplayer = $('#audioplayer')[0];
+            $('#audio_mp3').attr('src', src);
+            audioplayer.load()
+            audioplayer.play();
+        } else
+            this.nextSound();
+    }
+}
+
+RandomizeIt.prototype._nextSound = function () {
     if (this.sounds.length > 0) {
         let s_id = this.sounds.shift();
         let a = this._objects[s_id[0]][s_id[1]].find('audio');
@@ -95,7 +108,8 @@ RandomizeIt.prototype.setTimeout = function(fnc = null, timeout = null) {
         this._fnc = fnc;
     }
     let elapsed = new Date().getTime() - this._t0;
-    if ($('#showseconds').prop('checked'))
+
+    if ($('#showseconds').prop('checked')) 
         $('.seconds').text(Math.ceil((this._timer - elapsed) / 1000));
     else
         $('.seconds').text('');

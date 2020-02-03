@@ -1,14 +1,15 @@
 var cacheName = 'random-climb';
 var filesToCache = [
   'index.html',
-  'random.html',
   'manifest.json',
   'favicon.ico',
   'css/style.css',
+  'random.html',
   'js/main.js',
   'js/randomizeit.js',
   'js/textit.js',
   'js/randomclimb.js',
+  'js/cookies.js',
   'images/transparent_1024.png',
   'images/icons/icon-144x144.png',
   'images/presas/amarilla.png',

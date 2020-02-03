@@ -1,4 +1,8 @@
 function bind_buttons(update_interface) {
+    $('#showseconds').on('change', function(e) {
+        setCookie('showseconds', $('#showseconds').prop('checked'), 365);
+    })
+
     $('#start').on('click', function(e) {
         e.preventDefault();
         r.start();
@@ -31,6 +35,7 @@ function bind_buttons(update_interface) {
     $('#mute').on('click', function(e) {
         e.preventDefault();
         sound = ! sound;
+        setCookie('sound', sound, 365);
         update_interface();
     })
 
@@ -104,26 +109,21 @@ let values2 = [
     { txt: 'pie izquierdo', sound: 'sound/pieizquierdo.mp3'  }
 ];
 
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-
 let r = null;
-let sound = false;
+let sound = true;
 
 $(function() {
-    let params = getUrlVars();
+    const urlParams = new URLSearchParams(window.location.search);
+
+    sound = getCookie('sound') === 'true';
+    $('#showseconds').prop('checked', getCookie('showseconds') === 'true');
+
     let mode = '1';
-    if (params['m'] !== undefined) 
-        switch (params['m']) {
-            case '1': mode = 1; break;
-            case '2': mode = 2; break;
-            case '3': mode = 3; break;
-        }
+    switch (urlParams.get('m')) {
+        case '1': mode = 1; break;
+        case '2': mode = 2; break;
+        case '3': mode = 3; break;
+    }
 
     switch (mode) {
         case 2:
