@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="manifest" href="manifest.json">
+  <title>randomize-it</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />  
+  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">   
+  <meta name="theme-color" content="white"/>  
+  <meta name="apple-mobile-web-app-capable" content="yes">  
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-title" content="Hello World"> 
+  <meta name="msapplication-TileImage" content="images/icons/hello-icon-144.png">  
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <script src="vendor/jquery-3.4.1.min.js"></script>  
+  <link rel="stylesheet" href="vendor/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link href="vendor/fontawesome-free-5.12.0-web/css/fontawesome.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome-free-5.12.0-web/css/brands.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome-free-5.12.0-web/css/solid.min.css" rel="stylesheet">
+  <script src="vendor/popper.js/popper.min.js"></script>
+  <script src="vendor/bootstrap/4.1.1/js/bootstrap.min.js"></script>  
+  <script src="js/randomizeit.js"></script>  
+  <script src="js/randomclimb.js"></script>
+</head>
+<body class="fullscreen">
+    <header>
+        <nav class="navbar navbar-expand-md fixed-top align-items-center w-100">
+            <div class="col-md-6 col-sm-12">
+                <div class="input-group mb-3" style="padding-top: 1em;">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" name="showseconds" id="showseconds">
+                            <span>segundos</span>
+                        </div>
+                    </div>
+                    <select class="custom-select" id="segundos">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option selected value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    </select>
+                </div>        
+            </div>      
+            <div class="col-md-6 col-sm-12 text-md-right text-center">
+                <a id="repeat" class="btn btn-primary" href="#" role="button"><i class="fas fa-fast-backward"></i></a>
+                <a id="start" class="btn btn-primary" href="#" role="button"><i class="fas fa-play"></i></a>
+                <a id="pause" class="btn btn-primary disabled" href="#" role="button"><i class="fas fa-pause"></i></a>
+                <a id="step" class="btn btn-primary" href="#" role="button"><i class="fas fa-step-forward"></i></a>
+                <a id="stop" class="btn btn-primary disabled" href="#" role="button"><i class="fas fa-undo"></i></a>
+                <a id="mute" class="btn btn-primary" href="#" role="button"><i class="fas fa-volume-up"></i></a>
+            </div>            
+        </nav>
+    </header>
+    <div class="bigbutton row text-center" id="bigbutton">
+        <span class="statetext vert-middle w-100" id="bigstatetext"></span>                
+    </div>        
+    <main role="main" class="container">
+        <div class="container">
+            <div id="randomplace"></div>
+        </div>        
+    </main>
+    <div id="countdown" class="row h-100 w-100">
+        <div class="col seconds text-left">
+        </div>
+        <div class="col seconds text-right">
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <div class="actual float-left" id="movs_actual"></div>
+        <div class="maximo float-right" id="movs_maximo"></div>
+        <span class="statetext" id="foottext">pausado</span>
+        <span class="float-right game-mode text-right">
+            <div class="btn-group dropup">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                modo
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="random.html?m=1">simple</a>
+                    <a class="dropdown-item" href="random.html?m=2">doble</a>
+                    <a class="dropdown-item" href="random.html?m=3">serie</a>
+                </div>
+            </div>
+        </span>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

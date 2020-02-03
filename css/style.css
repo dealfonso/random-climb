@@ -1,0 +1,185 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  /* Make content area fill the entire browser window */
+  html,
+  .fullscreen {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  /* Center the content in the browser window */
+  .container {
+    margin: auto;
+    text-align: center;
+  }
+  
+ @media (min-width:601px) {
+    .title{
+        font-size: 3rem;
+      }
+  } 
+  @media (min-width:993px) {
+    .title{
+        font-size: 4rem;
+      }
+  } 
+
+  img {
+      width: 200px;
+      height: 200px;
+  }
+
+  @media (min-width:400px) and (min-height:400px) {
+    img {
+        width: 300px;
+        height: 300px;
+    }
+    .object h2 {
+        font-size: 150%;
+    }
+  }
+
+
+  @media (min-width:500px) and (min-height:500px) {
+    img {
+        width: 400px;
+        height: 400px;
+    }
+    .object h2 {
+        font-size: 200%;
+    }
+  }
+
+  @media (min-width:700px) and (min-height:700px) {
+    img {
+        width: 600px;
+        height: 600px;
+    }
+    .object h2 {
+        font-size: 300%;
+    }
+  }
+
+
+  span.exgallery{display:block;background-repeat:no-repeat;background-size:contain;background-position:center;}
+  /*.object h2 {text-align:center;margin-top: auto; margin-bottom:auto}*/
+  .object { margin-top: auto; margin-bottom: auto}
+  
+
+.footer {
+    height: 50px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 50px;
+    line-height: 50px; /* Vertically center the text there */
+    /*background-color: #fbfbfb;*/
+}
+
+div.actual {
+    font-weight: bold;
+    min-width: 5em;
+    background-color: #fcc;
+}
+
+div.actual.mayor {
+    background-color: #cfc;
+}
+
+div.maximo {
+    font-weight: bold;
+    color: #fff;
+    min-width: 5em;
+    background-color: #333;
+}
+
+@media (min-width: 768px) {
+  .text-sm-left {
+      text-align: left !important;
+  }
+
+  .text-sm-right {
+      text-align: right !important;
+  }
+
+  .text-sm-center {
+      text-align: center !important;
+  }
+
+  .text-sm-justify {
+      text-align: justify !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .text-md-left {
+      text-align: left !important;
+  }
+
+  .text-md-right {
+      text-align: right !important;
+  }
+
+  .text-md-center {
+      text-align: center !important;
+  }
+
+  .text-md-justify {
+      text-align: justify !important;
+  }
+}
+
+#countdown {
+  font-weight: bold;
+  text-align: center;
+  font-size: 800%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.3;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.seconds, .vert-middle {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#showseconds {
+  margin-right: 0.5em;
+}
+
+.bigbutton {
+  z-index: 2;
+  text-align: center;
+  font-size: 300%;
+  font-weight: bold;
+  color: #ccc;
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  z-index: 3;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.game-mode {
+  padding-right: 0.5em;
+}
