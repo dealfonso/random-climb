@@ -55,6 +55,7 @@ RandomizeIt.prototype.nextSound = function () {
         let src = this._data[s_id[0]][s_id[1]].sound || null;
         if (sound && (src !== null)) {
             let audioplayer = $('#audioplayer')[0];
+            audioplayer.pause();
             $('#audio_mp3').attr('src', src);
             audioplayer.load()
             audioplayer.play();
@@ -135,6 +136,7 @@ RandomizeIt.prototype.clear = function() {
 RandomizeIt.prototype.start = function() {
     // this._objects.forEach(function (o) { o.hide(); });
     $('.object').hide();
+    this.sounds = [];
     this._running = true;
     this.setTimeout(function() { 
         this.next() 
@@ -160,33 +162,35 @@ RandomizeIt.prototype.restart = function() {
 }
 
 RandomizeIt.prototype.step = function() {
-    if (this._current !== null) {
-       this.hide_current(function() { this.show_next(false) }.bind(this));
-    } else {
-        this.show_next(false);
-    }
+    this.sounds = [];
+    this.show_next(false);
 }
 
 RandomizeIt.prototype.hide_current = function(callback) {
+    // Finalize any animation in the objects
+    $('.object').finish();
+
     this._current.forEach(function(i_object, i_serie) {
         if (i_serie == 0)
-            this._objects[i_serie][i_object].fadeOut(this._timers.duration_fadeout, function() {
+            this._objects[i_serie][i_object].show().fadeOut(this._timers.duration_fadeout, function() {
                 $('.placeholder').show();
                 callback();
             });
         else
-            this._objects[i_serie][i_object].fadeOut(this._timers.duration_fadeout);
+            this._objects[i_serie][i_object].show().fadeOut(this._timers.duration_fadeout);
     }.bind(this));
 }
 
 RandomizeIt.prototype.show_next = function(program = false) {
     let current = this.random();
 
+    // Finalize any animation and hide all the objects, because we are showing the new ones
+    $('.object').finish().hide();
     $('.placeholder').hide();
     current.forEach(function(i_object, i_serie) {
         this.appendSound([i_serie, i_object])
         if (i_serie == 0) {
-            this._objects[i_serie][i_object].fadeIn(this._timers.duration_fadein, function() {
+            this._objects[i_serie][i_object].finish().hide().fadeIn(this._timers.duration_fadein, function() {
                 this._current = current;            
                 update_interface();
                 this.nextSound();
@@ -198,7 +202,7 @@ RandomizeIt.prototype.show_next = function(program = false) {
             }.bind(this));
 
         } else {
-            this._objects[i_serie][i_object].fadeIn(this._timers.duration_fadein);
+            this._objects[i_serie][i_object].finish().hide().fadeIn(this._timers.duration_fadein);
         }
 
     }.bind(this));

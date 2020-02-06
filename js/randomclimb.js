@@ -51,6 +51,10 @@ function bind_buttons(update_interface) {
         }
         update_interface();
     })
+
+    $('#segundos').on('change', function(e) {
+        setCookie('segundos', $('#segundos').val(), 365);
+    })
 }
 
 function update_interface() {
@@ -118,6 +122,8 @@ $(function() {
 
     sound = getCookie('sound') === 'true';
     $('#showseconds').prop('checked', getCookie('showseconds') === 'true');
+    let segundos = parseInt(getCookie('segundos'))
+    if (!isNaN(segundos)) $('#segundos').val(segundos);
 
     let mode = '1';
     switch (urlParams.get('m')) {
