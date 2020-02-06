@@ -93,6 +93,7 @@ function update_interface() {
 }
 
 let values = [
+    { img: 'images/presas/amarillo-romo.png', txt: 'amarillo romo', sound: 'sound/amarilloromo.mp3' },
     { img: 'images/presas/amarilla.png', txt: 'amarilla', sound: 'sound/amarilla.mp3' },
     { img: 'images/presas/azul-p.png', txt: 'azul', sound: 'sound/azul.mp3' },
     { img: 'images/presas/azul.png', txt: 'azul', sound: 'sound/azul.mp3' },
