@@ -119,12 +119,13 @@ let values2 = [
     { txt: 'pie izquierdo', sound: 'sound/pieizquierdo.mp3'  }
 ];
 
+let noSleep = new NoSleep();
+
 let r = null;
 let sound = true;
 
 $(function() {
     const urlParams = new URLSearchParams(window.location.search);
-    var noSleep = new NoSleep();
 
     sound = getCookie('sound') === 'true';
     $('#showseconds').prop('checked', getCookie('showseconds') === 'true');

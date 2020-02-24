@@ -1,4 +1,4 @@
-var cacheName = 'random-climb-v-2020022402';
+var cacheName = 'random-climb-v-2020022403';
 var filesToCache = [
   'index.html',
   'manifest.json',
