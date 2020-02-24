@@ -1,4 +1,4 @@
-var cacheName = 'random-climb';
+var cacheName = 'random-climb-v-2020022402';
 var filesToCache = [
   'index.html',
   'manifest.json',
@@ -29,6 +29,7 @@ var filesToCache = [
   'vendor/fontawesome-free-5.12.0-web/webfonts/fa-solid-900.ttf',
   'vendor/fontawesome-free-5.12.0-web/webfonts/fa-solid-900.woff',
   'vendor/fontawesome-free-5.12.0-web/webfonts/fa-solid-900.woff2',
+  'vendor/NoSleep.min.js',
   'sound/manoderecha.mp3',
   'sound/moradaclara.mp3',
   'sound/pieizquierdo.mp3',

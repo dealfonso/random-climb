@@ -6,22 +6,26 @@ function bind_buttons(update_interface) {
     $('#start').on('click', function(e) {
         e.preventDefault();
         r.start();
+        noSleep.enable();
         $('#bigstatetext').hide();
         update_interface();
     })
     $('#stop').on('click', function(e) {
         e.preventDefault();
         r.clear();
+        noSleep.disable();
         update_interface();
     })
     $('#repeat').on('click', function(e) {
         e.preventDefault();
         r.restart();
+        noSleep.enable();
         update_interface();
     });
     $('#pause').on('click', function(e) {
         e.preventDefault();
         r.pause();
+        noSleep.disable();
         $('#bigstatetext').show();
         setTimeout(function() { $('#bigstatetext').fadeOut(); }, 1000);
         update_interface();
@@ -43,6 +47,7 @@ function bind_buttons(update_interface) {
         e.preventDefault();
         if (r._running) {
             r.pause();
+            noSleep.disable();
             $('#bigstatetext').show();
             setTimeout(function() { $('#bigstatetext').fadeOut(); }, 1000);
         } else {
@@ -119,6 +124,7 @@ let sound = true;
 
 $(function() {
     const urlParams = new URLSearchParams(window.location.search);
+    var noSleep = new NoSleep();
 
     sound = getCookie('sound') === 'true';
     $('#showseconds').prop('checked', getCookie('showseconds') === 'true');
